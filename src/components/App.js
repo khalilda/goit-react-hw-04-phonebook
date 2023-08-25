@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Component } from 'react';
-import { nanoid } from 'nanoid';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import AppStyle from './AppStyle.module.css';
 import { FilterContact } from './FilterContact/FilterContact';
 import { ListContact } from './ListContact/ListContact';
