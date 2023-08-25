@@ -4,16 +4,26 @@ import { Component } from 'react';
 import FormModule from './FormContact.module.css';
 
 export class FormContact extends Component {
-    handleFormSubmit = event => {
-      event.preventDefault();
-  
-      const name = event.target.name.value;
-      const number = event.target.number.value;
-      const { addContact } = this.props;
-  
-      addContact({ id: nanoid(), name, number });
-      event.target.reset();
-    };
+  state = {
+    name: '',
+    number: '',
+  };
+
+  onInputChange = event => {
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
+  };
+
+  onSubmit = event => {
+    event.preventDefault();
+    const { name, number } = this.state;
+    this.props.onSubmit({ name, number });
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
+  };
 
   render() {
     return (
